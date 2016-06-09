@@ -1,0 +1,64 @@
+Program name        Flow123d
+Program version     2.0.0_rc
+Program branch      2.0.0_rc
+Program revision    release_1.8.2-1615-g295ad00
+Program build       May  5 2016, 03:32:01 flags: -O3 -DNDEBUG -Wall -Wno-unused-local-typedefs -std=c++11
+Timer resolution    0.00011053
+
+Task description    Test6 - Coupling between dimension 1D-2D - influence of sigma and cross section parameters.
+Task size           44
+
+Run process count   1
+Run started         2016-06-06 10:33:22
+Run ended           2016-06-06 10:33:22
+
+                                      tag                                      call count (max)   max T   min/max T   avg T    total T                            source                              line    
+
+ 100.00  100.00 Whole Program                                                      1      0.0461    1.0000    0.0461    0.0461   system/sys_profiler.cc, ()                                      294   
+  48.56  .  48.56 Application::run                                                 1      0.0224    1.0000    0.0224    0.0224   main.cc, run()                                                  287   
+  19.36  .  .  39.88 HC run simulation                                             1      0.0089    1.0000    0.0089    0.0089   coupling/hc_explicit_sequential.cc, run_simulation()            149   
+   0.12  .  .  .   0.63 Solving MH system                                          1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh.cc, update_solution()                        370   
+  19.12  .  .  .  98.74 HC water zero time step                                    1      0.0088    1.0000    0.0088    0.0088   coupling/hc_explicit_sequential.cc, run_simulation()            162   
+   0.02  .  .  .  .   0.12 postprocess                                             1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh.cc, postprocess()                            481   
+   1.70  .  .  .  .   8.89 preallocation                                           1      0.0008    1.0000    0.0008    0.0008   flow/darcy_flow_mh.cc, create_linear_system()                  1179   
+   0.84  .  .  .  .  .  49.64 PETSC PREALLOCATION                                  1      0.0004    1.0000    0.0004    0.0004   flow/darcy_flow_mh.cc, create_linear_system()                  1256   
+   0.76  .  .  .  .  .  .  90.03 DarcyFlowMH_Steady::assembly_steady_mh_matrix     1      0.0004    1.0000    0.0004    0.0004   flow/darcy_flow_mh.cc, assembly_steady_mh_matrix()              640   
+   0.04  .  .  .  .  .  .  .   5.44 assembly source term                           1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh.cc, assembly_source_term()                   917   
+   5.21  .  .  .  .  27.27 Darcy output data                                       1      0.0024    1.0000    0.0024    0.0024   flow/darcy_flow_mh.cc, output_data()                            505   
+   4.32  .  .  .  .  .  82.79 Darcy fields output                                  1      0.0020    1.0000    0.0020    0.0020   flow/darcy_flow_mh_output.cc, output()                          184   
+   0.96  .  .  .  .  .  .  22.25 write time frame                                  1      0.0004    1.0000    0.0004    0.0004   flow/darcy_flow_mh_output.cc, output()                          204   
+   0.91  .  .  .  .  .  .  .  94.68 OutputTime::write_time_frame                   1      0.0004    1.0000    0.0004    0.0004   io/output_time.cc, write_time_frame()                           203   
+   0.03  .  .  .  .  .  .   0.59 DarcyFlowMHOutput::output_internal_flow_data      1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh_output.cc, output_internal_flow_data()       510   
+   0.34  .  .  .  .  .  .   7.89 DarcyFlowMHOutput::make_node_scalar_param         1      0.0002    1.0000    0.0002    0.0002   flow/darcy_flow_mh_output.cc, make_node_scalar_param()          290   
+   0.03  .  .  .  .  .  .  .   9.62 DarcyFlowMHOutput::make_corner_scalar          1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh_output.cc, make_corner_scalar()              260   
+   0.09  .  .  .  .  .  .   2.19 DarcyFlowMHOutput::make_element_vector            1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh_output.cc, make_element_vector()             241   
+   2.67  .  .  .  .  .  .  61.82 evaluate output fields                            1      0.0012    1.0000    0.0012    0.0012   flow/darcy_flow_mh_output.cc, output()                          198   
+   2.55  .  .  .  .  .  .  .  95.68 Fill OutputData                                1      0.0012    1.0000    0.0012    0.0012   fields/field_set.cc, output()                                   170   
+   0.04  .  .  .  .  .  .   0.90 DarcyFlowMHOutput::make_element_scalar            1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh_output.cc, make_element_scalar()             220   
+   0.72  .  .  .  .  .  13.77 Darcy balance output                                 1      0.0003    1.0000    0.0003    0.0003   flow/darcy_flow_mh.cc, output_data()                            512   
+   0.22  .  .  .  .   1.15 prepare parallel                                        1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh.cc, prepare_parallel()                      1612   
+   2.75  .  .  .  .  14.38 DarcyFlowMH_Steady::assembly_linear_system              1      0.0013    1.0000    0.0013    0.0013   flow/darcy_flow_mh.cc, assembly_linear_system()                1276   
+   2.69  .  .  .  .  .  97.93 full assembly                                        1      0.0012    1.0000    0.0012    0.0012   flow/darcy_flow_mh.cc, assembly_linear_system()                1283   
+   2.45  .  .  .  .  .  .  91.01 DarcyFlowMH_Steady::assembly_steady_mh_matrix     1      0.0011    1.0000    0.0011    0.0011   flow/darcy_flow_mh.cc, assembly_steady_mh_matrix()              640   
+   0.12  .  .  .  .  .  .  .   4.81 assembly source term                           1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh.cc, assembly_source_term()                   917   
+   0.13  .  .  .  .   0.71 prepare scatter                                         1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh.cc, make_serial_scatter()                   1565   
+   2.65  .  .  .  .  13.86 SchurComplement::solve                                  1      0.0012    1.0000    0.0012    0.0012   la/schur.cc, solve()                                            330   
+   0.68  .  .  .  .  .  25.81 form schur complement                                1      0.0003    1.0000    0.0003    0.0003   la/schur.cc, solve()                                            332   
+   0.03  .  .  .  .  .  .   4.67 form rhs                                          1      0.0000    1.0000    0.0000    0.0000   la/schur.cc, form_rhs()                                         205   
+   0.15  .  .  .  .  .  .  21.33 create inversion matrix                           1      0.0001    1.0000    0.0001    0.0001   la/schur.cc, create_inversion_matrix()                          253   
+   1.83  .  .  .  .  .  68.92 SchurComplement::solve                               1      0.0008    1.0000    0.0008    0.0008   la/schur.cc, solve()                                            330   
+   0.46  .  .  .  .  .  .  25.23 form schur complement                             1      0.0002    1.0000    0.0002    0.0002   la/schur.cc, solve()                                            332   
+   0.03  .  .  .  .  .  .  .   6.58 form rhs                                       1      0.0000    1.0000    0.0000    0.0000   la/schur.cc, form_rhs()                                         205   
+   0.08  .  .  .  .  .  .  .  17.82 create inversion matrix                        1      0.0000    1.0000    0.0000    0.0000   la/schur.cc, create_inversion_matrix()                          253   
+   0.45  .  .  .  .  .  .  24.76 PETSC linear solver                               1      0.0002    1.0000    0.0002    0.0002   la/linsys_PETSC.cc, solve()                                     366   
+   0.40  .  .  .  .  .  .  .  88.59 PETSC linear iteration                         3      0.0002    1.0000    0.0001    0.0002   la/linsys_PETSC.cc, solve()                                     367   
+   0.03  .  .  .  .  .  .   1.72 schur back resolve                                1      0.0000    1.0000    0.0000    0.0000   la/schur.cc, solve()                                            341   
+   0.04  .  .  .  .  .   1.51 schur back resolve                                   1      0.0000    1.0000    0.0000    0.0000   la/schur.cc, solve()                                            341   
+   5.71  .  .  11.77 HC constructor                                                1      0.0026    1.0000    0.0026    0.0026   coupling/hc_explicit_sequential.cc, HC_ExplicitSequential()      84   
+   3.30  .  .  .  57.70 HC read mesh                                               1      0.0015    1.0000    0.0015    0.0015   coupling/hc_explicit_sequential.cc, HC_ExplicitSequential()      89   
+   3.19  .  .  .  .  96.83 Reading mesh - init_from_input                          1      0.0015    1.0000    0.0015    0.0015   mesh/mesh.cc, init_from_input()                                 232   
+   0.69  .  .  .  .  .  21.74 MESH - setup topology                                1      0.0003    1.0000    0.0003    0.0003   mesh/mesh.cc, setup_topology()                                  263   
+   1.79  .  .  .  .  .  56.10 GMSHReader - read mesh                               1      0.0008    1.0000    0.0008    0.0008   mesh/msh_gmshreader.cc, read_mesh()                              64   
+   2.14  .  .  .  37.45 Darcy constructor                                          1      0.0010    1.0000    0.0010    0.0010   flow/darcy_flow_mh.cc, DarcyMH()                                266   
+   0.68  .  .  .  .  31.79 data init                                               1      0.0003    1.0000    0.0003    0.0003   flow/darcy_flow_mh.cc, DarcyMH()                                278   
+  20.35  .  .  41.91 Read Input                                                    1      0.0094    1.0000    0.0094    0.0094   main.cc, run()                                                  290   

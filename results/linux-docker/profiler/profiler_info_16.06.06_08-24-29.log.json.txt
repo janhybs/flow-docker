@@ -1,0 +1,19 @@
+Program name        Flow123d
+Program version     2.0.0_rc
+Program branch      2.0.0_rc
+Program revision    release_1.8.2-1615-g295ad00
+Program build       May  5 2016, 03:32:01 flags: -O3 -DNDEBUG -Wall -Wno-unused-local-typedefs -std=c++11
+Timer resolution    0.00011078
+
+Task description    
+Task size           1
+
+Run process count   1
+Run started         2016-06-06 08:24:29
+Run ended           2016-06-06 08:24:29
+
+                tag                call count (max)   max T   min/max T   avg T    total T            source             line    
+
+ 100.00  100.00 Whole Program          1      0.0461    1.0000    0.0461    0.0461   system/sys_profiler.cc, ()     294   
+  42.89  .  42.89 Application::run     1      0.0198    1.0000    0.0198    0.0198   main.cc, run()                 287   
+  42.68  .  .  99.51 Read Input        1      0.0197    1.0000    0.0197    0.0197   main.cc, run()                 290   

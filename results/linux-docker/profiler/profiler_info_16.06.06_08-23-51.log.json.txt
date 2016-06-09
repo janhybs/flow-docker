@@ -1,0 +1,115 @@
+Program name        Flow123d
+Program version     2.0.0_rc
+Program branch      2.0.0_rc
+Program revision    release_1.8.2-1615-g295ad00
+Program build       May  5 2016, 03:32:01 flags: -O3 -DNDEBUG -Wall -Wno-unused-local-typedefs -std=c++11
+Timer resolution    0.00011004
+
+Task description    Test15 - 2D unsteady flow LM
+Task size           800
+
+Run process count   1
+Run started         2016-06-06 08:23:51
+Run ended           2016-06-06 08:23:53
+
+                                      tag                                      call count (max)   max T   min/max T   avg T    total T                                  source                                    line    
+
+ 100.00  100.00 Whole Program                                                      1      2.8732    1.0000    2.8732    2.8732   system/sys_profiler.cc, ()                                                  294   
+  99.09  .  99.09 Application::run                                                 1      2.8471    1.0000    2.8471    2.8471   main.cc, run()                                                              287   
+  97.53  .  .  98.42 HC run simulation                                             1      2.8022    1.0000    2.8022    2.8022   coupling/hc_explicit_sequential.cc, run_simulation()                        149   
+   0.24  .  .  .   0.24 OutputTime::write_time_frame                               1      0.0068    1.0000    0.0068    0.0068   io/output_time.cc, write_time_frame()                                       203   
+  21.03  .  .  .  21.56 TOS-output data                                           20      0.6042    1.0000    0.0302    0.6042   transport/transport_operator_splitting.cc, output_data()                    219   
+   5.19  .  .  .  .  24.68 OutputTime::write_time_frame                           20      0.1491    1.0000    0.0075    0.1491   io/output_time.cc, write_time_frame()                                       203   
+  15.48  .  .  .  .  73.64 DG-OUTPUT                                              20      0.4449    1.0000    0.0222    0.4449   transport/transport_dg.cc, output_data()                                    639   
+  15.41  .  .  .  .  .  99.52 Fill OutputData                                     20      0.4428    1.0000    0.0221    0.4428   fields/field_set.cc, output()                                               170   
+   0.31  .  .  .  .   1.48 TOS-balance                                            20      0.0090    1.0000    0.0004    0.0090   transport/transport_operator_splitting.cc, output_data()                    228   
+  24.28  .  .  .  24.89 Solving MH system                                         20      0.6976    1.0000    0.0349    0.6976   flow/darcy_flow_mh.cc, update_solution()                                    370   
+  21.06  .  .  .  .  86.75 Darcy output data                                      20      0.6051    1.0000    0.0303    0.6051   flow/darcy_flow_mh.cc, output_data()                                        505   
+  20.57  .  .  .  .  .  97.65 Darcy fields output                                 20      0.5909    1.0000    0.0295    0.5909   flow/darcy_flow_mh_output.cc, output()                                      184   
+   3.02  .  .  .  .  .  .  14.66 write time frame                                 20      0.0866    1.0000    0.0043    0.0866   flow/darcy_flow_mh_output.cc, output()                                      204   
+   3.00  .  .  .  .  .  .  .  99.34 OutputTime::write_time_frame                  20      0.0861    1.0000    0.0043    0.0861   io/output_time.cc, write_time_frame()                                       203   
+   0.01  .  .  .  .  .  .   0.06 DarcyFlowMHOutput::output_internal_flow_data     20      0.0003    1.0000    0.0000    0.0003   flow/darcy_flow_mh_output.cc, output_internal_flow_data()                   510   
+   1.58  .  .  .  .  .  .   7.67 DarcyFlowMHOutput::make_node_scalar_param        20      0.0453    1.0000    0.0023    0.0453   flow/darcy_flow_mh_output.cc, make_node_scalar_param()                      290   
+   0.04  .  .  .  .  .  .  .   2.57 DarcyFlowMHOutput::make_corner_scalar         20      0.0012    1.0000    0.0001    0.0012   flow/darcy_flow_mh_output.cc, make_corner_scalar()                          260   
+   0.36  .  .  .  .  .  .   1.73 DarcyFlowMHOutput::make_element_vector           20      0.0102    1.0000    0.0005    0.0102   flow/darcy_flow_mh_output.cc, make_element_vector()                         241   
+  15.49  .  .  .  .  .  .  75.33 evaluate output fields                           20      0.4451    1.0000    0.0223    0.4451   flow/darcy_flow_mh_output.cc, output()                                      198   
+  15.46  .  .  .  .  .  .  .  99.78 Fill OutputData                               20      0.4442    1.0000    0.0222    0.4442   fields/field_set.cc, output()                                               170   
+   0.04  .  .  .  .  .  .   0.19 DarcyFlowMHOutput::make_element_scalar           20      0.0011    1.0000    0.0001    0.0011   flow/darcy_flow_mh_output.cc, make_element_scalar()                         220   
+   0.42  .  .  .  .  .   2.00 Darcy balance output                                20      0.0121    1.0000    0.0006    0.0121   flow/darcy_flow_mh.cc, output_data()                                        512   
+   0.11  .  .  .  .   0.46 DarcyFlowMH_Steady::assembly_linear_system             20      0.0032    1.0000    0.0002    0.0032   flow/darcy_flow_mh.cc, assembly_linear_system()                            1276   
+   0.09  .  .  .  .  .  82.15 modify system                                       20      0.0026    1.0000    0.0001    0.0026   flow/darcy_flow_mh.cc, assembly_linear_system()                            1310   
+   0.07  .  .  .  .  .  .  79.27 modify system                                    20      0.0021    1.0000    0.0001    0.0021   flow/richards_lmh.cc, modify_system()                                       162   
+   2.30  .  .  .  .   9.48 SchurComplement::solve                                 20      0.0661    1.0000    0.0033    0.0661   la/schur.cc, solve()                                                        330   
+   0.60  .  .  .  .  .  26.13 form schur complement                               20      0.0173    1.0000    0.0009    0.0173   la/schur.cc, solve()                                                        332   
+   0.03  .  .  .  .  .  .   5.69 form rhs                                         20      0.0010    1.0000    0.0000    0.0010   la/schur.cc, form_rhs()                                                     205   
+   0.19  .  .  .  .  .  .  31.68 create inversion matrix                          13      0.0055    1.0000    0.0004    0.0055   la/schur.cc, create_inversion_matrix()                                      253   
+   1.62  .  .  .  .  .  70.50 SchurComplement::solve                              20      0.0466    1.0000    0.0023    0.0466   la/schur.cc, solve()                                                        330   
+   0.28  .  .  .  .  .  .  17.45 form schur complement                            20      0.0081    1.0000    0.0004    0.0081   la/schur.cc, solve()                                                        332   
+   0.02  .  .  .  .  .  .  .   7.35 form rhs                                      20      0.0006    1.0000    0.0000    0.0006   la/schur.cc, form_rhs()                                                     205   
+   0.06  .  .  .  .  .  .  .  21.95 create inversion matrix                       13      0.0018    1.0000    0.0001    0.0018   la/schur.cc, create_inversion_matrix()                                      253   
+   1.09  .  .  .  .  .  .  67.20 PETSC linear solver                              20      0.0313    1.0000    0.0016    0.0313   la/linsys_PETSC.cc, solve()                                                 366   
+   1.07  .  .  .  .  .  .  .  98.20 PETSC linear iteration                        80      0.0308    1.0000    0.0004    0.0308   la/linsys_PETSC.cc, solve()                                                 367   
+   0.02  .  .  .  .  .  .   1.06 schur back resolve                               20      0.0005    1.0000    0.0000    0.0005   la/schur.cc, solve()                                                        341   
+   0.04  .  .  .  .  .   1.62 schur back resolve                                  20      0.0011    1.0000    0.0001    0.0011   la/schur.cc, solve()                                                        341   
+  46.68  .  .  .  47.86 TOS-one step                                              20      1.3411    1.0000    0.0671    1.3411   transport/transport_operator_splitting.cc, update_solution()                259   
+   0.06  .  .  .  .   0.13 TOS-balance                                            40      0.0017    1.0000    0.0000    0.0017   transport/transport_operator_splitting.cc, update_solution()                286   
+  46.51  .  .  .  .  99.65 DG-ONE STEP                                            20      1.3365    1.0000    0.0668    1.3365   transport/transport_dg.cc, update_solution()                                472   
+   0.04  .  .  .  .  .   0.08 data reinit                                         20      0.0011    1.0000    0.0001    0.0011   transport/transport_dg.cc, update_solution()                                477   
+  39.09  .  .  .  .  .  84.04 assemble_stiffness                                  20      1.1232    1.0000    0.0562    1.1232   transport/transport_dg.cc, assemble_stiffness_matrix()                      751   
+   1.68  .  .  .  .  .  .   4.30 assemble_fluxes_boundary                         20      0.0483    1.0000    0.0024    0.0483   transport/transport_dg.cc, assemble_stiffness_matrix()                      758   
+   0.15  .  .  .  .  .  .   0.38 assemble_fluxes_elem_side                        20      0.0042    1.0000    0.0002    0.0042   transport/transport_dg.cc, assemble_stiffness_matrix()                      770   
+  12.21  .  .  .  .  .  .  31.24 assemble_volume_integrals                        20      0.3509    1.0000    0.0175    0.3509   transport/transport_dg.cc, assemble_stiffness_matrix()                      752   
+  25.00  .  .  .  .  .  .  63.95 assemble_fluxes_elem_elem                        20      0.7183    1.0000    0.0359    0.7183   transport/transport_dg.cc, assemble_stiffness_matrix()                      764   
+   0.03  .  .  .  .  .   0.06 assemble_mass                                        1      0.0008    1.0000    0.0008    0.0008   transport/transport_dg.cc, assemble_mass_matrix()                           684   
+   0.62  .  .  .  .  .   1.32 assemble_sources                                    20      0.0177    1.0000    0.0009    0.0177   transport/transport_dg.cc, set_sources()                                    838   
+   1.68  .  .  .  .  .   3.62 assemble_bc                                         20      0.0484    1.0000    0.0024    0.0484   transport/transport_dg.cc, set_boundary_conditions()                       1262   
+   4.44  .  .  .  .  .   9.54 solve                                               20      0.1275    1.0000    0.0064    0.1275   transport/transport_dg.cc, update_solution()                                567   
+   3.52  .  .  .  .  .  .  79.20 PETSC linear solver                              20      0.1010    1.0000    0.0051    0.1010   la/linsys_PETSC.cc, solve()                                                 366   
+   3.50  .  .  .  .  .  .  .  99.44 PETSC linear iteration                        20      0.1004    1.0000    0.0050    0.1004   la/linsys_PETSC.cc, solve()                                                 367   
+   2.10  .  .  .   2.15 HC water zero time step                                    1      0.0603    1.0000    0.0603    0.0603   coupling/hc_explicit_sequential.cc, run_simulation()                        162   
+   0.07  .  .  .  .   3.10 preallocation                                           1      0.0019    1.0000    0.0019    0.0019   flow/darcy_flow_mh.cc, create_linear_system()                              1179   
+   0.05  .  .  .  .  .  78.20 PETSC PREALLOCATION                                  1      0.0015    1.0000    0.0015    0.0015   flow/darcy_flow_mh.cc, create_linear_system()                              1256   
+   0.05  .  .  .  .  .  .  94.26 DarcyFlowMH_Steady::assembly_steady_mh_matrix     1      0.0014    1.0000    0.0014    0.0014   flow/darcy_flow_mh.cc, assembly_steady_mh_matrix()                          640   
+   1.20  .  .  .  .  57.09 Darcy output data                                       1      0.0344    1.0000    0.0344    0.0344   flow/darcy_flow_mh.cc, output_data()                                        505   
+   1.13  .  .  .  .  .  94.38 Darcy fields output                                  1      0.0325    1.0000    0.0325    0.0325   flow/darcy_flow_mh_output.cc, output()                                      184   
+   0.14  .  .  .  .  .  .  12.14 write time frame                                  1      0.0039    1.0000    0.0039    0.0039   flow/darcy_flow_mh_output.cc, output()                                      204   
+   0.14  .  .  .  .  .  .  .  99.27 OutputTime::write_time_frame                   1      0.0039    1.0000    0.0039    0.0039   io/output_time.cc, write_time_frame()                                       203   
+   0.00  .  .  .  .  .  .   0.05 DarcyFlowMHOutput::output_internal_flow_data      1      0.0000    1.0000    0.0000    0.0000   flow/darcy_flow_mh_output.cc, output_internal_flow_data()                   510   
+   0.08  .  .  .  .  .  .   7.14 DarcyFlowMHOutput::make_node_scalar_param         1      0.0023    1.0000    0.0023    0.0023   flow/darcy_flow_mh_output.cc, make_node_scalar_param()                      290   
+   0.00  .  .  .  .  .  .  .   2.69 DarcyFlowMHOutput::make_corner_scalar          1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh_output.cc, make_corner_scalar()                          260   
+   0.02  .  .  .  .  .  .   1.59 DarcyFlowMHOutput::make_element_vector            1      0.0005    1.0000    0.0005    0.0005   flow/darcy_flow_mh_output.cc, make_element_vector()                         241   
+   0.89  .  .  .  .  .  .  78.49 evaluate output fields                            1      0.0255    1.0000    0.0255    0.0255   flow/darcy_flow_mh_output.cc, output()                                      198   
+   0.89  .  .  .  .  .  .  .  99.76 Fill OutputData                                1      0.0254    1.0000    0.0254    0.0254   fields/field_set.cc, output()                                               170   
+   0.00  .  .  .  .  .  .   0.24 DarcyFlowMHOutput::make_element_scalar            1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh_output.cc, make_element_scalar()                         220   
+   0.06  .  .  .  .  .   5.20 Darcy balance output                                 1      0.0018    1.0000    0.0018    0.0018   flow/darcy_flow_mh.cc, output_data()                                        512   
+   0.01  .  .  .  .   0.50 prepare parallel                                        1      0.0003    1.0000    0.0003    0.0003   flow/darcy_flow_mh.cc, prepare_parallel()                                  1612   
+   0.75  .  .  .  .  35.73 DarcyFlowMH_Steady::assembly_linear_system              1      0.0215    1.0000    0.0215    0.0215   flow/darcy_flow_mh.cc, assembly_linear_system()                            1276   
+   0.75  .  .  .  .  .  99.86 full assembly                                        1      0.0215    1.0000    0.0215    0.0215   flow/darcy_flow_mh.cc, assembly_linear_system()                            1283   
+   0.05  .  .  .  .  .  .   6.63 fix time term                                     1      0.0014    1.0000    0.0014    0.0014   flow/darcy_flow_mh.cc, assembly_linear_system()                            1297   
+   0.00  .  .  .  .  .  .  .   2.88 modify system                                  1      0.0000    1.0000    0.0000    0.0000   flow/richards_lmh.cc, modify_system()                                       162   
+   0.68  .  .  .  .  .  .  91.36 DarcyFlowMH_Steady::assembly_steady_mh_matrix     1      0.0197    1.0000    0.0197    0.0197   flow/darcy_flow_mh.cc, assembly_steady_mh_matrix()                          640   
+   0.00  .  .  .  .   0.20 prepare scatter                                         1      0.0001    1.0000    0.0001    0.0001   flow/darcy_flow_mh.cc, make_serial_scatter()                               1565   
+   3.09  .  .  .   3.17 Solute_AdvectionDiffusion                                  1      0.0889    1.0000    0.0889    0.0889   transport/transport_dg.cc, zero_time_step()                                 417   
+   0.08  .  .  .  .   2.57 set_init_cond                                           1      0.0023    1.0000    0.0023    0.0023   transport/transport_dg.cc, set_initial_condition()                         1607   
+   0.03  .  .  .  .  .  32.67 PETSC linear solver                                  1      0.0007    1.0000    0.0007    0.0007   la/linsys_PETSC.cc, solve()                                                 366   
+   0.02  .  .  .  .  .  .  96.09 PETSC linear iteration                            0      0.0007    1.0000    0.0007    0.0007   la/linsys_PETSC.cc, solve()                                                 367   
+   1.99  .  .  .  .  64.21 assemble_stiffness                                      1      0.0571    1.0000    0.0571    0.0571   transport/transport_dg.cc, assemble_stiffness_matrix()                      751   
+   0.08  .  .  .  .  .   4.25 assemble_fluxes_boundary                             1      0.0024    1.0000    0.0024    0.0024   transport/transport_dg.cc, assemble_stiffness_matrix()                      758   
+   0.01  .  .  .  .  .   0.37 assemble_fluxes_elem_side                            1      0.0002    1.0000    0.0002    0.0002   transport/transport_dg.cc, assemble_stiffness_matrix()                      770   
+   0.61  .  .  .  .  .  30.73 assemble_volume_integrals                            1      0.0175    1.0000    0.0175    0.0175   transport/transport_dg.cc, assemble_stiffness_matrix()                      752   
+   1.28  .  .  .  .  .  64.51 assemble_fluxes_elem_elem                            1      0.0368    1.0000    0.0368    0.0368   transport/transport_dg.cc, assemble_stiffness_matrix()                      764   
+   0.76  .  .  .  .  24.42 DG-OUTPUT                                               1      0.0217    1.0000    0.0217    0.0217   transport/transport_dg.cc, output_data()                                    639   
+   0.75  .  .  .  .  .  99.52 Fill OutputData                                      1      0.0216    1.0000    0.0216    0.0216   fields/field_set.cc, output()                                               170   
+   0.03  .  .  .  .   1.03 assemble_mass                                           1      0.0009    1.0000    0.0009    0.0009   transport/transport_dg.cc, assemble_mass_matrix()                           684   
+   0.03  .  .  .  .   1.02 assemble_sources                                        1      0.0009    1.0000    0.0009    0.0009   transport/transport_dg.cc, set_sources()                                    838   
+   0.08  .  .  .  .   2.72 assemble_bc                                             1      0.0024    1.0000    0.0024    0.0024   transport/transport_dg.cc, set_boundary_conditions()                       1262   
+   1.03  .  .   1.04 HC constructor                                                1      0.0295    1.0000    0.0295    0.0295   coupling/hc_explicit_sequential.cc, HC_ExplicitSequential()                  84   
+   0.92  .  .  .  89.57 HC read mesh                                               1      0.0264    1.0000    0.0264    0.0264   coupling/hc_explicit_sequential.cc, HC_ExplicitSequential()                  89   
+   0.92  .  .  .  .  99.79 Reading mesh - init_from_input                          1      0.0264    1.0000    0.0264    0.0264   mesh/mesh.cc, init_from_input()                                             232   
+   0.09  .  .  .  .  .   9.33 MESH - setup topology                                1      0.0025    1.0000    0.0025    0.0025   mesh/mesh.cc, setup_topology()                                              263   
+   0.70  .  .  .  .  .  76.09 GMSHReader - read mesh                               1      0.0201    1.0000    0.0201    0.0201   mesh/msh_gmshreader.cc, read_mesh()                                          64   
+   0.05  .  .  .   4.79 Darcy constructor                                          1      0.0014    1.0000    0.0014    0.0014   flow/darcy_flow_mh.cc, DarcyMH()                                            266   
+   0.01  .  .  .  .  20.11 data init                                               1      0.0003    1.0000    0.0003    0.0003   flow/darcy_flow_mh.cc, DarcyMH()                                            278   
+   0.05  .  .  .   5.07 TransportOperatorSpliting                                  1      0.0015    1.0000    0.0015    0.0015   transport/transport_operator_splitting.cc, TransportOperatorSplitting()     144   
+   0.01  .  .  .  .  25.49 Solute_AdvectionDiffusion                               1      0.0004    1.0000    0.0004    0.0004   transport/transport_dg.cc, TransportDG()                                    246   
+   0.40  .  .   0.40 Read Input                                                    1      0.0114    1.0000    0.0114    0.0114   main.cc, run()                                                              290   
